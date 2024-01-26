@@ -1,18 +1,22 @@
-function addElement(htmlElement,classNames, parent) {
-    const element = document.createElement(htmlElement)
-    element.className = classNames
-    element.style.backgroundColor = changeColor(); 
-    document.querySelector(parent).appendChild(element)
-}
 
-function changeColor(){
-    const color = ['blue', 'red', 'yellow', 'pink', 'green', 'black']
-    const randomNum = Math.floor(Math.random() * color.length);
-    return color[randomNum]
+function addElement (elementHTML, className, parent, color) {
+    const div = document.createElement(elementHTML)
+    div.className = className
+    div.style.backgroundColor = color || getRandomColor()
+    document.querySelector(parent).appendChild(div)
+    
 }
 
 
 
 
-export {  addElement}
 
+function getRandomColor (){
+    const color = ['red', 'yellow', 'pink', 'green', 'blue', 'black']
+    const randomIndex = Math.floor(Math.random()*color.length)
+    return color[randomIndex]
+}
+
+
+
+export {addElement}
